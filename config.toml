@@ -1,0 +1,64 @@
+model = "deepseek-chat"
+model_provider = "deepseek"
+approval_policy = "on-failure"
+sandbox_mode = "workspace-write"
+project_doc_max_bytes = 32768
+
+### Providers
+
+[model_providers.deepseek]
+name = "DeepSeek"
+base_url = "https://api.deepseek.com"
+env_key = "DEEPSEEK_API_KEY"
+
+[model_providers.openrouter]
+name = "OpenRouter"
+base_url = "https://openrouter.ai/api"
+env_key = "OPENROUTER_API_KEY"
+
+[model_providers.lmstudio]
+name = "LMStudio"
+base_url = "http://localhost:11435"
+
+### Models
+
+[profiles.deepseek-reasoner]
+model = "deepseek-reasoner"
+model_provider = "deepseek"
+approval_policy = "on-failure"
+sandbox_mode = "workspace-write"
+model_supports_reasoning_summaries = false
+
+[profiles.deepseek-chat]
+model = "deepseek-chat"
+model_provider = "deepseek"
+approval_policy = "on-failure"
+sandbox_mode = "workspace-write"
+model_supports_reasoning_summaries = false
+
+[profiles.glm-4.6]
+model = "z-ai/glm-4.6"
+model_provider = "openrouter"
+approval_policy = "on-failure"
+sandbox_mode = "workspace-write"
+model_supports_reasoning_summaries = false
+
+[profiles.gpt-oss]
+model_provider = "lmstudio"
+model = "openai/gpt-oss-20b"
+
+[profiles.qwen3]
+model_provider = "lmstudio"
+model = "qwen/qwen3-14b"
+
+[sandbox_workspace_write]
+exclude_tmpdir_env_var = false
+exclude_slash_tmp = false
+network_access = true
+
+[shell_environment_policy]
+inherit = "all"
+ignore_default_excludes = false
+
+[history]
+persistence = "save-all"

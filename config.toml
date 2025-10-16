@@ -18,7 +18,7 @@ env_key = "OPENROUTER_API_KEY"
 
 [model_providers.lmstudio]
 name = "LMStudio"
-base_url = "http://localhost:11435"
+base_url = "http://localhost:11435/v1"
 
 ### Models
 
@@ -49,7 +49,9 @@ model = "openai/gpt-oss-20b"
 
 [profiles.qwen3]
 model_provider = "lmstudio"
-model = "qwen/qwen3-14b"
+model = "qwen/qwen3-4b-thinking-2507"
+
+### General
 
 [sandbox_workspace_write]
 exclude_tmpdir_env_var = false

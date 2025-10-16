@@ -19,6 +19,7 @@ env_key = "OPENROUTER_API_KEY"
 [model_providers.lmstudio]
 name = "LMStudio"
 base_url = "http://127.0.0.1:11435/v1"
+stream_idle_timeout_ms = 300000
 
 ### Models
 
@@ -46,10 +47,6 @@ model_supports_reasoning_summaries = false
 [profiles.gpt-oss]
 model_provider = "lmstudio"
 model = "openai/gpt-oss-20b"
-
-[profiles.qwen3]
-model_provider = "lmstudio"
-model = "qwen/qwen3-4b-thinking-2507"
 
 [profiles.qwen3-coder]
 model_provider = "lmstudio"
